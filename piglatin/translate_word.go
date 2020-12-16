@@ -7,7 +7,7 @@ import (
 const (
 	suffix          string = "ay"
 	exceptions      string = "aeiou"
-	SuffixException        = "y" + suffix
+	suffixException        = "y" + suffix
 )
 
 func (q *PigLatin) TranslateWord(in string) string {
