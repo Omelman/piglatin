@@ -7,12 +7,13 @@ import (
 )
 
 func main() {
-	var newPinLatin pig.PinLatin
+	var newPinLatin pig.PigLatin
 
-	err := newPinLatin.Input()
+	input, err := newPinLatin.Input()
 	if err != nil {
 		log.Fatalf("Failed to read input: %s", err.Error())
 	}
 
-	fmt.Print(newPinLatin.TranslateText())
+	newPinLatin = newPinLatin.TranslateText(input)
+	fmt.Print(newPinLatin)
 }

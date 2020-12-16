@@ -5,10 +5,10 @@ import (
 	"unicode"
 )
 
-func (q *PinLatin) TranslateText() string {
+func (q *PigLatin) TranslateText(in string) PigLatin {
 	var pigLatinWords []string
 	var separators []string
-	text := q.InputText
+	text := in
 
 	f := func(c rune) bool {
 		return unicode.IsSpace(c) || c == '.' || c == ',' || c == ':' || c == '-' ||
@@ -23,12 +23,12 @@ func (q *PinLatin) TranslateText() string {
 		separators = append(separators, text[leftPos:rightPos])
 	}
 	//string after last word
-	ending := strings.Index(text, Words[len(Words)-1]) + len(Words[len(Words)-1])
-	separators = append(separators, text[ending:])
+	lastWordPos := strings.Index(text, Words[len(Words)-1]) + len(Words[len(Words)-1])
+	separators = append(separators, text[lastWordPos:])
 
 	for i, word := range Words {
 		pigLatinWords = append(pigLatinWords, q.TranslateWord(word)+separators[i])
 	}
 
-	return strings.Join(pigLatinWords, "")
+	return PigLatin(strings.Join(pigLatinWords, ""))
 }

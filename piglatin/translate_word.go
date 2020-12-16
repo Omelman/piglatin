@@ -8,7 +8,7 @@ const (
 	suffixException        = "d" + suffix
 )
 
-func (q *PinLatin) TranslateWord(in string) string {
+func (q *PigLatin) TranslateWord(in string) string {
 	first := in[0:1]
 	if strings.Contains(exceptions, first) {
 		return in + suffixException
