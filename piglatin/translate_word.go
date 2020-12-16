@@ -16,7 +16,7 @@ func (q *PigLatin) TranslateWord(in string) string {
 		if strings.ToLower(in[len(in)-1:]) == "y" {
 			return in + suffix
 		} else {
-			return in + SuffixException
+			return in + suffixException
 		}
 	} else {
 		var prefix string
